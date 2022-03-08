@@ -17,6 +17,7 @@ class CreateSurveysTable extends Migration
             $table->id();
             $table->bigInteger('votes');
             $table->text('title');
+            $table->string('answer');
             $table->date('datestart');
             $table->date('datefinished');
             $table->foreignId('user_id');

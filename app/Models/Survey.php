@@ -12,6 +12,7 @@ class Survey extends Model
     protected $fillable = [
         'votes',
         'title',
+        'answer',
         'datestart',
         'datefinished',
         'user_id'
