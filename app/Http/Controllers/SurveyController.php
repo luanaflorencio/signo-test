@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Survey;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SurveyController extends Controller
 {
@@ -34,7 +36,14 @@ class SurveyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Survey::create([
+            'question' => $request->question,
+            'answer' => $request->answer,
+            'datestart' => $request->datestart,
+            'datefinished' => $request->datefinished,
+            'user_id' => Auth::user()->id,
+        ]);
+        return redirect()->back()->with('create', 'Enquete criada!');
     }
 
     /**
