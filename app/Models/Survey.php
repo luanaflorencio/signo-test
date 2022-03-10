@@ -10,8 +10,7 @@ class Survey extends Model
     use HasFactory;
 
     protected $fillable = [
-        'votes',
-        'title',
+        'question',
         'answer',
         'datestart',
         'datefinished',
