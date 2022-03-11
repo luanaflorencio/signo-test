@@ -13,15 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\DashboardController;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
+
 Route::post('/survey', [SurveyController::class, 'store'])->name('create-survey');
 
 require __DIR__ . '/auth.php';
