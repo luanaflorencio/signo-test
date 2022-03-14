@@ -16,7 +16,7 @@ class SurveyController extends Controller
      */
     public function index()
     {
-        //
+        return view('survey.create');
     }
 
     /**
@@ -40,8 +40,8 @@ class SurveyController extends Controller
         Survey::create([
             'question' => $request->question,
             'answer' => $request->answer,
-            'datestart' => $request->datestart,
-            'datefinished' => $request->datefinished,
+            'datestart' => date('Y-m-d', strtotime($request->datestart)),
+            'datefinished' => date('Y-m-d', strtotime($request->datefinished)),
             'user_id' => Auth::user()->id,
         ]);
         return redirect()->back()->with('create', 'Enquete criada!');

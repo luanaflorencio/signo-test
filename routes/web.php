@@ -23,5 +23,6 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
 
 Route::post('/survey', [SurveyController::class, 'store'])->name('create-survey');
+Route::get('/survey', [SurveyController::class, 'index'])->name('show-create');
 
 require __DIR__ . '/auth.php';

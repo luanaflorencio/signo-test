@@ -17,8 +17,8 @@ class CreateSurveysTable extends Migration
             $table->id();
             $table->string('question');
             $table->string('answer');
-            $table->dateTime('datestart');
-            $table->dateTime('datefinished');
+            $table->date('datestart');
+            $table->date('datefinished');
             $table->foreignId('user_id');
             $table->timestamps();
         });
