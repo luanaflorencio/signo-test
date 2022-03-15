@@ -65,7 +65,8 @@ class SurveyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $survey = Survey::findOrFail($id);
+        return view('survey.edit', compact('survey'));
     }
 
     /**
@@ -88,6 +89,7 @@ class SurveyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Survey::where('id', $id)->delete();
+        return redirect()->back()->with('success', 'Enquete excluída!');
     }
 }

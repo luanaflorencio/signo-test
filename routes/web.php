@@ -24,5 +24,7 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(
 
 Route::post('/survey', [SurveyController::class, 'store'])->name('create-survey');
 Route::get('/survey', [SurveyController::class, 'index'])->name('show-create');
+Route::get('/survey/edit/{id}', [SurveyController::class, 'edit'])->name('edit-survey');
+Route::get('/survey/delete/{id}', [SurveyController::class, 'destroy'])->name('delete-survey');
 
 require __DIR__ . '/auth.php';
