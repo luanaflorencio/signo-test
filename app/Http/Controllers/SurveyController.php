@@ -78,7 +78,13 @@ class SurveyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Survey::findOrFail($id)->update([
+            'question' => $request->question,
+            'answer' => $request->answer,
+            'datestart' => date('Y-m-d', strtotime($request->datestart)),
+            'datefinished' => date('Y-m-d', strtotime($request->datefinished)),
+        ]);
+        return redirect()->to('dashboard')->with('update', 'Enquete editada!');
     }
 
     /**

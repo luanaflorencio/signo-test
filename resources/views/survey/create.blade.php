@@ -42,14 +42,14 @@
   } );
   </script>
 
-<form method="POST" action="{{route('create-survey')}}">
-    @csrf
-    <div class="py-12">
-      <div class="max-w-7xl max-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-          <div class="mr-2">
-            <div class="p-4">
-              <div class="p-6 bg-white border-b border-gray-200">
+<div class="py-12">
+  <div class="max-w-7xl max-auto sm:px-6 lg:px-8">
+    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+      <div class="mr-2">
+        <div class="p-4">
+          <div class="p-6 bg-white border-b border-gray-200">
+            <form method="POST" action="{{route('create-survey')}}">
+                @csrf
                 <div id="data">
                   <x-label for="datestart" :value="__('Data para iniciar a enquete')" />
                    <x-input type="text" id="datestart" name="datestart"/>

@@ -42,25 +42,25 @@
   } );
   </script>
 
-<form method="POST" action="{{route('create-survey')}}">
-    @csrf
-    <div class="py-12">
-      <div class="max-w-7xl max-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-          <div class="mr-2">
-            <div class="p-4">
-              <div class="p-6 bg-white border-b border-gray-200">
+<div class="py-12">
+  <div class="max-w-7xl max-auto sm:px-6 lg:px-8">
+    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+      <div class="mr-2">
+        <div class="p-4">
+          <div class="p-6 bg-white border-b border-gray-200">
+            <form action="{{route('survey-up', ['id'=>$survey->id])}}" method="POST">
+                @csrf
                 <div id="data">
                   <x-label for="datestart" :value="__('Data para iniciar a enquete')" />
-                   <x-input type="text" id="datestart" name="datestart"/>
+                   <x-input type="text" id="datestart" name="datestart" class="block mt-1 w-full" :value="old('datestart')" value="{{ $survey->datestart }}" required autofocus />
                   <x-label for="datefinished" :value="__('Data para fechar a enquete')"/>
-                   <x-input type="text" id="datefinished" name="datefinished"/>
+                   <x-input type="text" id="datefinished" name="datefinished" class="block mt-1 w-full" :value="old('datefinished')" value="{{ $survey->datefinished }}" required autofocus />
               </div>    
               
               <div>
               <x-label for="question" :value="__('Faça sua Pergunta:')" />
               
-              <x-input id="question" class="block mt-1 w-full" type="text" name="question" :value="old('question')" required autofocus />
+              <x-input id="question" class="block mt-1 w-full" type="text" name="question" :value="old('question')" value="{{ $survey->question }}" required autofocus />
               </div>
               
               <div>

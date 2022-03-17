@@ -26,5 +26,6 @@ Route::post('/survey', [SurveyController::class, 'store'])->name('create-survey'
 Route::get('/survey', [SurveyController::class, 'index'])->name('show-create');
 Route::get('/survey/edit/{id}', [SurveyController::class, 'edit'])->name('edit-survey');
 Route::get('/survey/delete/{id}', [SurveyController::class, 'destroy'])->name('delete-survey');
+Route::post('/survey/update/{id}', [SurveyController::class, 'update'])->name('survey-up');
 
 require __DIR__ . '/auth.php';
